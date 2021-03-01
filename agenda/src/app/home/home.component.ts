@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core'; 
-import { ApiService } from '../services/api.service';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';     
+import { ApiUsersService } from '../../services/api-users.service'; 
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,32 +9,11 @@ import { ApiService } from '../services/api.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor() {
+ 
+   }
 
-  ngOnInit(): void {
-
-    this.GetContatos();
-
-
+  ngOnInit(): void { 
+  
   }
-
-
-    GetContatos(): any {
-
-      let _input = {
-
-        id_Usuario:  0,
-        Rota:  'Users/Get'
-      }
-      
-      return this.apiService.Send(_input).subscribe(data => {  
-
-          console.log(data);
-      
-      }, error => {            
-            
-      }); 
-
-  }
-
 }

@@ -1,15 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/internal/Observable';
+import { AuthService } from './auth.service';
 import { map, catchError } from 'rxjs/operators'; 
+import { Observable } from 'rxjs'; 
 
-import { AuthService } from '../services/auth.service'
 
-@Injectable({ providedIn: 'root' })
-export class ApiService {
+@Injectable({
+  providedIn: 'root'
+})
+export class ApiUsersService {
 
   constructor(private authService: AuthService) { }
 
-
+  
   Send(model: any): Observable<any> { 
 
     return this.authService.post(model.Rota, model).pipe(map((res: any) => { 
@@ -19,6 +21,6 @@ export class ApiService {
         return error;
       })
     ); 
-  } 
+  }
 
 }
