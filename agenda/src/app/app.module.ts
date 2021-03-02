@@ -18,7 +18,9 @@ import { CarteiraClientesComponent } from './agenda/carteira-clientes/carteira-c
 /* modules das páginas */
 import { ContatosClientesModule } from './agenda/contatos-clientes/contatos-clientes.module';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog'; 
-import { SocialButtonsComponent } from './agenda/social-buttons/social-buttons.component';
+import { SocialButtonsComponent } from './agenda/social-buttons/social-buttons.component'; 
+import { NewUserComponent } from './security/new-user/new-user.component';
+import { LoginComponent } from './security/login/login.component';
 
 const routes_: Routes = [
 
@@ -35,7 +37,8 @@ const routes_: Routes = [
 
       { path: 'carteira-clientes', component: CarteiraClientesComponent },
       { path: 'contatos-clientes', component: ContatosClientesComponent }, 
-
+      { path: 'login', component: LoginComponent },
+      { path: 'new-user', component: NewUserComponent },
     ]
 
   }
@@ -55,7 +58,7 @@ const appRoutes: Routes = [
     
     LayoutComponent,
     AppComponent, 
-    WelcomeComponent, SocialButtonsComponent
+    WelcomeComponent, SocialButtonsComponent 
 
   ],
   imports: [ 
