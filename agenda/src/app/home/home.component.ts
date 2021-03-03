@@ -1,4 +1,4 @@
-import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';     
+import { Component, OnInit } from '@angular/core';     
 import { ApiUsersService } from '../../services/api-users.service'; 
 import { AuthService } from '../../services/auth.service';
 

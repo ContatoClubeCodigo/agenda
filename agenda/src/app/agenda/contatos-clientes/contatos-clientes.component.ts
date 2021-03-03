@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core'; 
+import { Component, OnInit } from '@angular/core'; 
 import { ApiUsersService } from '../../../services/api-users.service'; 
 import {MatDialog} from '@angular/material/dialog';
-import { ContatosEditarComponent } from './editar/contatos-editar.component';
+import { ContatosEditarComponent } from './editar/contatos-editar.component'; 
+
 
 @Component({
   selector: 'app-contatos-clientes',
@@ -10,12 +11,11 @@ import { ContatosEditarComponent } from './editar/contatos-editar.component';
 })
 export class ContatosClientesComponent implements OnInit {
 
-
   public users: any[] = [
 
     { 'id': 0, 
       'name': 'Julio Fazenda',
-      'office': 'Senior Journalist',
+      'office': 'Senior Analist',
       'articles': 38,
       'followers': 980,
       'rating':8.9,
@@ -38,20 +38,22 @@ export class ContatosClientesComponent implements OnInit {
       'followers': 600,
       'rating':5.9,
       'photo': 'Boyle.jpg' 
-    },    
+    },     
 
-];
+  ];
   
 
+
+
   constructor(private apiUsersService: ApiUsersService,
-            public dialog: MatDialog) { }
+              public dialog: MatDialog) { }
 
   ngOnInit(): void {
 
-      this.Get();
+      this.Get(); 
   }
  
-
+ 
   Get() {
 
     let _input = {
@@ -60,17 +62,34 @@ export class ContatosClientesComponent implements OnInit {
     }
 
     return this.apiUsersService.Send(_input).subscribe(data => { 
-      
-      console.log(data.data); 
+       
       
 
     }, error => {});
   
   }
 
-  openDialog() {
+  EditDialog(item: any) { 
+  
+        const _data  = { 
+            type: 'Editar',  
+            data: item
+        };  
+        const dialogRef = this.dialog.open(ContatosEditarComponent, {    
+            data: _data
+        });
 
-    this.dialog.open(ContatosEditarComponent);
+        dialogRef.afterClosed().subscribe(result => {               
+                
+            if (result === undefined ) {
+                
+
+            } else { 
+
+            }  
+
+        });
+      
 
   }
 

@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';  
-import { Routes, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { Routes, RouterModule } from '@angular/router'; 
 import { CarteiraClientesComponent } from '../agenda/carteira-clientes/carteira-clientes.component';
 import { ContatosClientesComponent } from '../agenda/contatos-clientes/contatos-clientes.component';
 import { AppComponent } from '../app.component';
 import { HomeComponent } from '../home/home.component';
 import { LayoutComponent } from '../layout/layout.component';
+import { LoginComponent } from '../security/login/login.component';
+import { NewUserComponent } from '../security/new-user/new-user.component';
+import { WelcomeComponent } from '../welcome/welcome.component';
  
  
 const routes_: Routes = [
@@ -16,24 +18,34 @@ const routes_: Routes = [
     component: LayoutComponent,
     children: [
 
-      { path: 'carteira-clientes', component: CarteiraClientesComponent },
-      { path: 'contatos-clientes', component: ContatosClientesComponent },
-      { path: 'home', component: HomeComponent }   
+      { path: 'login',              component: LoginComponent },
+      { path: 'new-user',           component: NewUserComponent },
+      { path: 'welcome',            component: WelcomeComponent },
+      { path: 'home',               component: HomeComponent } ,
+      { path: 'app',                component: AppComponent } ,
+      { path: 'layout',             component: LayoutComponent },
+
+      { path: 'carteira-clientes',  component: CarteiraClientesComponent },
+      { path: 'contatos-clientes',  component: ContatosClientesComponent },   
 
     ]
 
   }
 ]
 
-const routes = [
+const appRoutes: Routes = [
   {
-    path: 'app',
-    loadChildren: './home/home.module#HomeModule' 
+    path        : 'agenda',
+    loadChildren: './carteira-clientes/carteira-clientes/carteira-clientes.module#CarteiraClientesModule'
   },
   {
-    path: 'agenda/contatos-clientes',
-    loadChildren: './home/home.module#HomeModule' 
-  } 
+      path        : 'agenda',
+      loadChildren: './contatos-clientes/contatos-clientes/contatos-clientes.module#ContatosClientesModule'
+  },
+  {
+      path        : 'app',
+      loadChildren: './social-buttons/social-buttons/social-buttons.module#SocialButtonsModule'
+  }
 ];
 
 @NgModule({
@@ -43,7 +55,7 @@ const routes = [
     LayoutComponent
   ],
   imports: [ 
-    [RouterModule.forRoot(routes_)],
+    [RouterModule.forRoot(appRoutes)],
   ],
   providers: [],
   exports:   [RouterModule],

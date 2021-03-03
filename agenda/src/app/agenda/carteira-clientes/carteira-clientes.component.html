@@ -1,23 +1,50 @@
  
+         
 
-  <div class="container">
+<div class="jumbotron text-center">
 
-    <div class="row">
+    <h1>Portifólio de Clientes</h1>
+    <p>Resize this responsive page to see the effect!</p>   
+</div> 
+
+      <div class="container mt-3 d-flex justify-content-center">
       
-      <div class="col-sm-4">
-        <h3>Carteira 1</h3>
-        <p>Lorem ipsum dolor..</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Carteira 2</h3>
-        <p>Lorem ipsum dolor..</p>
-      </div>
-      <div class="col-sm-4">
-        <h3>Carteira 3</h3>
-        <p>Lorem ipsum dolor..</p>
-      </div>
+          <div class="row">
+      
+              <div class="col-6" *ngFor="let item of custumers"> 
+          
+                  <div class="card p-2"> 
+                                  
+                      <div class="d-flex align-items-left">
+          
+                          <div class="image"> <img src="assets/image/{{item.image}}"> </div>
+          
+                          <div class="ml-3 w-100"> 
+                              <h4 class="mb-0 mt-0"><strong>{{item.name}}</strong></h4> <span>{{item.description}}</span> 
+                          </div>
+                          
+                      </div> 
+          
+                      <div class="p-2 mt-2 bg-primary d-flex justify-content-between rounded text-white stats">
+          
+                          <div class="d-flex flex-column"> <span class="rating">Discagens</span>         <span class="number3">{{item.dialed}}</span> </div>
+                          <div class="d-flex flex-column"> <span class="articles">Registros</span>     <span class="number1">{{item.num_register}}</span> </div>
+                          <div class="d-flex flex-column"> <span class="followers">Sucessos</span>   <span class="number2">{{item.success}}</span> </div>
+                          
+                      </div> 
+                      
+                  </div> 
 
-    </div>
+                  <p> </p> 
 
-  </div>
-
+                  <hr>
+                  
+                  <p> </p>
+          
+              </div>
+      
+          </div> 
+      
+      
+      </div>  
+        

@@ -1,4 +1,6 @@
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+.pointer {cursor: pointer;} 
+
 body {
     background-color: #B3E5FC;
     border-radius: 10px
@@ -8,7 +10,7 @@ body {
 /* Social Media Buttons */  
 ul {
     position: absolute;
-    top:90%;
+    top:80%;
     left: 70%;
     transform: translate(-50%, -50%);
     margin: 0;
@@ -122,7 +124,7 @@ ul li:nth-child(4) a span::after {
 
 /* caRDS */  
 .card {
-    width: 500px;
+    width: 400px;
     border: none;
     border-radius: 10px;
     background-color: #fff

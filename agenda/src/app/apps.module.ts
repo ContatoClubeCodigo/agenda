@@ -30,10 +30,14 @@ const routes = [
   {
     path: 'app',
     loadChildren: './home/home.module#HomeModule' 
-  },
+  }, 
   {
     path: 'agenda/contatos-clientes',
-    loadChildren: './home/home.module#HomeModule' 
+    loadChildren: './contatos-clientes/home.module#ContatosClientesModule' 
+  },
+  {
+    path: 'agenda/carteira-clientes',
+    loadChildren: './carteira-clientes/carteira.module#CarteiraClientesModule' 
   } 
 ];
 
